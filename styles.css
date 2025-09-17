@@ -1,62 +1,111 @@
+/* Сброс базовых отступов и удобная модель коробки */
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #fafafa;
+    color: #222;
 }
+
+/* Контейнер страницы */
 .container {
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
 }
+
+/* Шапка и подвал */
 .header,
 .footer {
-    background: #333;
-    color: white;
+    background-color: #2c2c2c;
+    color: #fff;
+    padding: 20px;
     text-align: center;
-    padding: 20px;
+    flex-shrink: 0;
 }
-.nav {
-    background: #444;
-    color: white;
-    padding: 15px;
 
-    gap: 15px;
+.footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
+
+/* Навигация */
+.nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px;
+    background: #3f3f3f;
+}
+
 .nav a {
-    color: white;
     text-decoration: none;
-    font-weight: bold;
+    color: #fff;
+    font-weight: 600;
+    transition: color 0.3s;
 }
+
+.nav a:hover {
+    color: #ff9800;
+}
+
+/* Основной блок */
 .main {
-    padding: 20px;
+    display: flex;
+    flex: 1;
     gap: 20px;
+    padding: 20px;
 }
+
+/* Сайдбар */
 .sidebar {
-    background: #f4f4f4;
+    flex: 0 0 25%;
+    background: #f0f0f0;
     padding: 20px;
-    width: 25%;
 }
+
+/* Контент */
 .content {
-    background: #ddd;
-    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     gap: 20px;
-}
-.section {
-    background: white;
+    background: #e0e0e0;
     padding: 20px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
+
+/* Секции в контенте */
+.section {
+    background: #fff;
+    padding: 20px;
+    flex-basis: 50%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    border-radius: 6px;
+}
+
+/* Карточки */
 .card-container {
+    display: flex;
+    flex-wrap: wrap;
     gap: 15px;
     width: 100%;
 }
+
 .card {
-    background: white;
+    flex: 1 1 30%;
+    background: #fff;
     padding: 15px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     text-align: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    transition: transform 0.2s;
 }
-.footer {
-    margin-top: 20px;
+
+.card:hover {
+    transform: translateY(-4px);
 }
